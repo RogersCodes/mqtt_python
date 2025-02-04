@@ -1,9 +1,11 @@
 import paho.mqtt.client as mqtt
-from random import randrange, uniform
+from random import uniform
 import time
 
 mqttBroker = "mqtt.eclipseprojects.io"
-client = mqtt.Client("Temperature_Inside")
+
+#Specify the callback API version
+client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION1, "Temperature_Inside")
 client.connect(mqttBroker)
 
 while True:
